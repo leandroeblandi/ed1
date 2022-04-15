@@ -3,7 +3,7 @@ import java.util.Objects;
 public class Aluno {
 	
 	private String nome;
-	private int nota;
+	private float nota;
 
 	public Aluno(String nome, int nota) {
 		this.nome = nome;
@@ -18,7 +18,7 @@ public class Aluno {
 		this.nome = nome;
 	}
 	
-	public int getNota() {
+	public float getNota() {
 		return nota;
 	}
 	
@@ -36,15 +36,27 @@ public class Aluno {
 		return Objects.hash(nome, nota);
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
+	// @Override
+	// public boolean equals(Object obj) {
+	// 	if (this == obj)
+	// 		return true;
+	// 	if (obj == null)
+	// 		return false;
+	// 	if (getClass() != obj.getClass())
+	// 		return false;
+	// 	Aluno other = (Aluno) obj;
+	// 	return Objects.equals(nome, other.nome) && nota == other.nota;
+	// }
+
+	public boolean equals(Object o){
+		Aluno outro = (Aluno) o;
+	   return this.nome.equals(outro.nome);
+	}
+
+	public boolean contem(Object o) {
+		if(equals(o)){
 			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Aluno other = (Aluno) obj;
-		return Objects.equals(nome, other.nome) && nota == other.nota;
+		} 
+		return false;
 	}
 }
